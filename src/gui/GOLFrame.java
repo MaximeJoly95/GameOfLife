@@ -60,20 +60,20 @@ public class GOLFrame extends JFrame implements GOL, Runnable, GOLControlsListen
 		GridBagLayout gb = new GridBagLayout();
 		setLayout(gb);
         
-        GridBagConstraints canvasConstraints = new GridBagConstraints();    
-        canvasConstraints.fill = GridBagConstraints.BOTH;
-        canvasConstraints.gridx = GridBagConstraints.REMAINDER;
-        canvasConstraints.gridy = 0;
-        canvasConstraints.weightx = 1;
-        canvasConstraints.weighty = 1;
-        canvasConstraints.anchor = GridBagConstraints.CENTER;
-        add(gameOfLifeCanvas, canvasConstraints);
-        
-        GridBagConstraints controlsConstraints = new GridBagConstraints();   
-        controlsConstraints.gridy = 1;
-        controlsConstraints.gridx = 0;
-        controlsConstraints.gridx = GridBagConstraints.REMAINDER;
-        add(controls, controlsConstraints);
+		GridBagConstraints canvasConstraints = new GridBagConstraints();    
+		canvasConstraints.fill = GridBagConstraints.BOTH;
+		canvasConstraints.gridx = GridBagConstraints.REMAINDER;
+		canvasConstraints.gridy = 0;
+		canvasConstraints.weightx = 1;
+		canvasConstraints.weighty = 1;
+		canvasConstraints.anchor = GridBagConstraints.CENTER;
+		add(gameOfLifeCanvas, canvasConstraints);
+
+		GridBagConstraints controlsConstraints = new GridBagConstraints();   
+		controlsConstraints.gridy = 1;
+		controlsConstraints.gridx = 0;
+		controlsConstraints.gridx = GridBagConstraints.REMAINDER;
+		add(controls, controlsConstraints);
 	}
 	
 	/**
