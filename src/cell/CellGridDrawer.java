@@ -1,4 +1,4 @@
-package data;
+package cell;
 
 public interface CellGridDrawer {
 	void setCellSize(int cellSize);

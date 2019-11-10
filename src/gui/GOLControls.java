@@ -14,12 +14,12 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Vector;
 
-import event.GameControlsEvent;
-import event.GameControlsListener;
+import event.GOLControlsEvent;
+import event.GOLControlsListener;
 import shape.Shape;
 import shape.ShapeCollection;
 
-public class GameControls extends Panel {
+public class GOLControls extends Panel {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -40,7 +40,7 @@ public class GameControls extends Panel {
 	public static final int SIZE_MEDIUM = 7;
 	public static final int SIZE_SMALL = 3;
 	
-	private Vector<GameControlsListener> listeners 	= new Vector<GameControlsListener>();
+	private Vector<GOLControlsListener> listeners 	= new Vector<GOLControlsListener>();
 	private Label genLabel 			= new Label(genLabelText);
 	private Button startstopButton 	= new Button(startLabelText);
 	private Button nextButton 		= new Button(nextLabelText);
@@ -49,7 +49,7 @@ public class GameControls extends Panel {
 	private Choice speedChoice 		= new Choice();
 	private Choice zoomChoice 		= new Choice();
 	
-	public GameControls(GameControlsListener listener) {
+	public GOLControls(GOLControlsListener listener) {
 		listeners.addElement(listener);
 		
 		genLabel.setPreferredSize(DIM);
@@ -225,8 +225,8 @@ public class GameControls extends Panel {
 	 * Notify event-listeners.
 	 */
 	public void startStopButtonClicked() {
-		GameControlsEvent event = new GameControlsEvent(this);
-		for (GameControlsListener l : listeners) {
+		GOLControlsEvent event = new GOLControlsEvent(this);
+		for (GOLControlsListener l : listeners) {
 			l.startStopButtonClicked(event);
 		}
 	}
@@ -236,8 +236,8 @@ public class GameControls extends Panel {
 	 * Notify event-listeners.
 	 */
 	public void nextButtonClicked() {
-		GameControlsEvent event = new GameControlsEvent(this);
-		for (GameControlsListener l : listeners) {
+		GOLControlsEvent event = new GOLControlsEvent(this);
+		for (GOLControlsListener l : listeners) {
 			l.nextButtonClicked(event);
 		}
 	}
@@ -247,8 +247,8 @@ public class GameControls extends Panel {
 	 * Notify event-listeners.
 	 */
 	public void clearButtonClicked() {
-		GameControlsEvent event = new GameControlsEvent(this);
-		for (GameControlsListener l : listeners) {
+		GOLControlsEvent event = new GOLControlsEvent(this);
+		for (GOLControlsListener l : listeners) {
 			l.clearButtonClicked(event);
 		}
 	}
@@ -258,8 +258,8 @@ public class GameControls extends Panel {
 	 * Notify event-listeners.
 	 */
 	public void speedChanged(int speed) {
-		GameControlsEvent event = GameControlsEvent.getSpeedChangedEvent(this, speed);
-		for (GameControlsListener l : listeners) {
+		GOLControlsEvent event = GOLControlsEvent.getSpeedChangedEvent(this, speed);
+		for (GOLControlsListener l : listeners) {
 			l.speedChanged(event);
 		}
 	}
@@ -269,8 +269,8 @@ public class GameControls extends Panel {
 	 * Notify event-listeners.
 	 */
 	public void zoomChanged( int zoom ) {
-		GameControlsEvent event = GameControlsEvent.getZoomChangedEvent(this, zoom);
-		for (GameControlsListener l : listeners) {
+		GOLControlsEvent event = GOLControlsEvent.getZoomChangedEvent(this, zoom);
+		for (GOLControlsListener l : listeners) {
 			l.zoomChanged(event);
 		}
 	}
@@ -280,8 +280,8 @@ public class GameControls extends Panel {
 	 * Notify event-listeners.
 	 */
 	public void shapeSelected(String shapeName) {
-		GameControlsEvent event = GameControlsEvent.getShapeSelectedEvent( this, shapeName );
-		for (GameControlsListener l : listeners) {
+		GOLControlsEvent event = GOLControlsEvent.getShapeSelectedEvent( this, shapeName );
+		for (GOLControlsListener l : listeners) {
 			l.shapeSelected(event);
 		}
 	}

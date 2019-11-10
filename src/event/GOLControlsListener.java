@@ -2,42 +2,42 @@ package event;
 
 import java.util.EventListener;
 
-public interface GameControlsListener extends EventListener {
+public interface GOLControlsListener extends EventListener {
 	
 	/**
 	 * The Start/Stop button is clicked.
 	 * @param e event object
 	 */
-	public void startStopButtonClicked(GameControlsEvent e);
+	public void startStopButtonClicked(GOLControlsEvent e);
 
 	/**
 	 * The Next button is clicked.
 	 * @param e event object
 	 */
-	public void nextButtonClicked(GameControlsEvent e);
+	public void nextButtonClicked(GOLControlsEvent e);
 	
 	/**
 	 * The Clear button is clicked.
 	 * @param e event object
 	 */
-	public void clearButtonClicked(GameControlsEvent e);
+	public void clearButtonClicked(GOLControlsEvent e);
 	
 	/**
 	 * A new shape is selected.
 	 * @param e event object
 	 */
-	public void shapeSelected(GameControlsEvent e);
+	public void shapeSelected(GOLControlsEvent e);
 
 	/**
 	 * A new speed is selected.
 	 * @param e event object
 	 */
-	public void speedChanged(GameControlsEvent e);
+	public void speedChanged(GOLControlsEvent e);
 
 	/**
 	 * A new cell size is selected.
 	 * @param e event object
 	 */
-	public void zoomChanged(GameControlsEvent e);
+	public void zoomChanged(GOLControlsEvent e);
 
 }

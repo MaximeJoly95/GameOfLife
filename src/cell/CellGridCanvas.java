@@ -1,4 +1,4 @@
-package data;
+package cell;
 
 import java.awt.Canvas;
 import java.awt.Color;

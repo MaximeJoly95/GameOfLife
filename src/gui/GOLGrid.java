@@ -3,10 +3,10 @@ package gui;
 import java.awt.Dimension;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import data.Cell;
-import data.CellGrid;
+import cell.Cell;
+import cell.CellGrid;
 
-public class GameOfLifeGrid implements CellGrid {
+public class GOLGrid implements CellGrid {
 	
 	private int cellRows;
 	private int cellCols;
@@ -19,7 +19,7 @@ public class GameOfLifeGrid implements CellGrid {
 	
 	private Cell[][] grid;
 	
-	public GameOfLifeGrid(int cellCols, int cellRows) {
+	public GOLGrid(int cellCols, int cellRows) {
 		this.cellCols = cellCols;
 		this.cellRows = cellRows;
 		this.grid = new Cell[cellCols][cellRows];

@@ -1,4 +1,4 @@
-package data;
+package cell;
 
 import java.awt.Dimension;
 import java.util.concurrent.ConcurrentLinkedQueue;

@@ -1,6 +1,6 @@
 package gui;
 
-public interface Game {
+public interface GOL {
 	void init();
 	void start();
 	void stop();

@@ -2,7 +2,7 @@ package event;
 
 import java.awt.Event;
 
-public class GameControlsEvent extends Event {
+public class GOLControlsEvent extends Event {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -10,7 +10,7 @@ public class GameControlsEvent extends Event {
 	private int zoom;
 	private String shapeName;
 	
-	public GameControlsEvent(Object source) {
+	public GOLControlsEvent(Object source) {
 		super(source, 0, null);
 	}
 	
@@ -20,8 +20,8 @@ public class GameControlsEvent extends Event {
 	 * @param speed new speed
 	 * @return new event object
 	 */
-	public static GameControlsEvent getSpeedChangedEvent(Object source, int speed) {
-		GameControlsEvent event = new GameControlsEvent(source);
+	public static GOLControlsEvent getSpeedChangedEvent(Object source, int speed) {
+		GOLControlsEvent event = new GOLControlsEvent(source);
 		event.setSpeed(speed);
 		return event;
 	}
@@ -32,8 +32,8 @@ public class GameControlsEvent extends Event {
 	 * @param zoom new zoom (cell size in pixels)
 	 * @return new event object
 	 */
-	public static GameControlsEvent getZoomChangedEvent(Object source, int zoom) {
-		GameControlsEvent event = new GameControlsEvent(source);
+	public static GOLControlsEvent getZoomChangedEvent(Object source, int zoom) {
+		GOLControlsEvent event = new GOLControlsEvent(source);
 		event.setZoom(zoom);
 		return event;
 	}
@@ -44,8 +44,8 @@ public class GameControlsEvent extends Event {
 	 * @param shapeName name of selected shape
 	 * @return new event object
 	 */
-	public static GameControlsEvent getShapeSelectedEvent(Object source, String shapeName) {
-		GameControlsEvent event = new GameControlsEvent(source);
+	public static GOLControlsEvent getShapeSelectedEvent(Object source, String shapeName) {
+		GOLControlsEvent event = new GOLControlsEvent(source);
 		event.setShapeName(shapeName);
 		return event;
 	}

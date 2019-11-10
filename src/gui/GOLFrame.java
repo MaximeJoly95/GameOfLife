@@ -8,14 +8,14 @@ import java.awt.GridBagLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import data.CellGridCanvas;
-import event.GameControlsEvent;
-import event.GameControlsListener;
+import cell.CellGridCanvas;
+import event.GOLControlsEvent;
+import event.GOLControlsListener;
 import shape.Shape;
 import shape.ShapeCollection;
 import shape.ShapeException;
 
-public class GameFrame extends JFrame implements Game, Runnable, GameControlsListener {
+public class GOLFrame extends JFrame implements GOL, Runnable, GOLControlsListener {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -33,13 +33,13 @@ public class GameFrame extends JFrame implements Game, Runnable, GameControlsLis
 	private int cellRows = DEFAULT_CELL_ROWS;
 	private int speed = DEFAULT_SPEED;
 	
-	private GameControls controls;
+	private GOLControls controls;
 	
 	private CellGridCanvas gameOfLifeCanvas;
-	private GameOfLifeGrid gameOfLifeGrid;
+	private GOLGrid gameOfLifeGrid;
 	private static Thread gameThread = null;
 	
-	public GameFrame() {
+	public GOLFrame() {
 		super("Game Of Life");
 		setSize(DEFAULT_FRAME_DIM);
 		setResizable(true);
@@ -53,9 +53,9 @@ public class GameFrame extends JFrame implements Game, Runnable, GameControlsLis
 	}
 	
 	public void init() {
-		gameOfLifeGrid = new GameOfLifeGrid(cellCols, cellRows);
+		gameOfLifeGrid = new GOLGrid(cellCols, cellRows);
 		gameOfLifeCanvas = new CellGridCanvas(gameOfLifeGrid, cellSize);
-		controls = new GameControls(this);
+		controls = new GOLControls(this);
 		
 		GridBagLayout gb = new GridBagLayout();
 		setLayout(gb);
@@ -185,7 +185,7 @@ public class GameFrame extends JFrame implements Game, Runnable, GameControlsLis
 	// ======================================================= //
 
 	@Override
-	public void startStopButtonClicked(GameControlsEvent e) {
+	public void startStopButtonClicked(GOLControlsEvent e) {
 		if (isRunning())
 			stop();
 		else
@@ -193,28 +193,28 @@ public class GameFrame extends JFrame implements Game, Runnable, GameControlsLis
 	}
 
 	@Override
-	public void nextButtonClicked(GameControlsEvent e) {
+	public void nextButtonClicked(GOLControlsEvent e) {
 		nextGeneration();
 	}
 
 	@Override
-	public void clearButtonClicked(GameControlsEvent e) {
+	public void clearButtonClicked(GOLControlsEvent e) {
 		reset();
 		gameOfLifeGrid.clear();
 	}
 
 	@Override
-	public void speedChanged(GameControlsEvent e) {
+	public void speedChanged(GOLControlsEvent e) {
 		setSpeed(e.getSpeed());
 	}
 
 	@Override
-	public void zoomChanged(GameControlsEvent e) {
+	public void zoomChanged(GOLControlsEvent e) {
 		setCellSize(e.getZoom());
 	}
 	
 	@Override
-	public void shapeSelected(GameControlsEvent e) {
+	public void shapeSelected(GOLControlsEvent e) {
 		try {
 			String shapeName = (String) e.getShapeName();
 			Shape shape = ShapeCollection.getShapeByName(shapeName);
